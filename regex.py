@@ -107,7 +107,7 @@ def run_validation():
         print("Invalid choice. Please select a number between 1 and 8.")
 
 # Main loop to keep the program running until the user decides to quit
-if _name_ == "_main_":
+if __name__ == "__main__":
     while True:
         run_validation()
         another = input("Do you want to validate another? (yes/no): ").strip().lower()
