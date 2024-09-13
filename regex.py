@@ -25,3 +25,21 @@ def validate_credit_card(card):
         r'^\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}$']
         
     return any(bool(re.match(p, card)) for p in patterns)
+
+# 5. Time Validation
+def validate_time(time):
+    patterns = [
+        r'\d{1,}[:]\d{2}[ ]?([a-zA-Z]+)?',
+        r'([0-9]+):[0-5][0-9] ?([APMapm]{2})?',
+        r'\b([01]?[0-9]|2[0-3]):[0-5][0-9]([ a-zA-Z]+)?'
+    ]
+    return any(bool(re.match(p, time)) for p in patterns)
+
+# 6. HTML Tag Validation
+def validate_html_tag(tag):
+    patterns = [
+        r'<[^>]+>',
+        r'<\s*[a-zA-Z]+(?:\s+[^>]+)?>',
+        r'^\<[a-zA-Z0-9 =."]+\>$'
+    ]
+    return any(bool(re.match(p, tag)) for p in patterns)
