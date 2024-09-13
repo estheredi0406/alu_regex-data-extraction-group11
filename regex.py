@@ -43,3 +43,17 @@ def validate_html_tag(tag):
         r'^\<[a-zA-Z0-9 =."]+\>$'
     ]
     return any(bool(re.match(p, tag)) for p in patterns)
+
+# 7. Hashtag Validation
+def validate_hashtag(hashtag):
+    patterns = [
+        r'#[A-Za-z0-9_]+',
+        r'#\w+'
+    ]
+    return any(bool(re.match(p, hashtag)) for p in patterns)
+
+# 8. Currency Validation
+def validate_currency(currency):
+    pattern = r'\$\d{1,3}(,\d{3})*(\.\d{2})?'
+    return bool(re.match(pattern, currency))
+
