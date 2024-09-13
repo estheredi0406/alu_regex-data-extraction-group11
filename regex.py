@@ -10,20 +10,20 @@ def validate_url(url):
     pattern = r'https?:\/\/[A-Za-z0-9.-]+(?:\.[A-Za-z]{2,})(?:\/[^\s]*)?'
     return bool(re.match(pattern, url))
 
-
 # 3. Phone Number Validation
 def validate_phone_number(phone):
     patterns = [
         r'\(?\d{3}\)?[ .-]?\d{3}[.-]?\d{4}',
-        r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}']
+        r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'
+    ]
     return any(bool(re.match(p, phone)) for p in patterns)
 
 # 4. Credit Card Validation
 def validate_credit_card(card):
     patterns = [
         r'\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}',
-        r'^\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}$']
-        
+        r'^\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}$'
+    ]
     return any(bool(re.match(p, card)) for p in patterns)
 
 # 5. Time Validation
@@ -107,7 +107,8 @@ def run_validation():
         print("Invalid choice. Please select a number between 1 and 8.")
 
 # Main loop to keep the program running until the user decides to quit
-if __name__ == "__main__":
+
+if __name__ == "_main_":
     while True:
         run_validation()
         another = input("Do you want to validate another? (yes/no): ").strip().lower()
